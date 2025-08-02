@@ -1,0 +1,61 @@
+---
+const navItems = [
+  { name: "Sobre mi", href: "#about", active: true },
+  { name: "Portafolio", href: "#portfolio", active: false },
+  { name: "Contacto", href: "#contact", active: false },
+];
+---
+
+<nav
+  class="bg-[#1a1b1d]/95 backdrop-blur-xl text-white w-[520px] right-0 top-0 z-10 shadow-2xl mx-auto flex justify-end rounded-b-3xl border border-gray-700/30 animate-fade-in"
+>
+  <div class="flex space-x-3 px-8 py-6">
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          class={`px-7 py-4 rounded-2xl font-medium transition-all duration-500 ease-out transform hover:translate-y-[-2px] ${
+            item.active
+              ? "bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 text-gray-900 shadow-2xl scale-105 animate-pulse-glow"
+              : "text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-gray-800/80 hover:to-gray-700/80 hover:scale-110 hover:shadow-xl backdrop-blur-sm border border-transparent hover:border-amber-400/30"
+          }`}
+        >
+          {item.name}
+        </a>
+      ))
+    }
+  </div>
+</nav>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+    }
+    50% {
+      box-shadow:
+        0 0 30px rgba(251, 191, 36, 0.5),
+        0 0 40px rgba(251, 191, 36, 0.2);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+</style>

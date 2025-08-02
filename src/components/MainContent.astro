@@ -1,0 +1,222 @@
+---
+// Datos de ejemplo - personaliza según tus necesidades
+const aboutData = {
+  title: "Desarrollador Full Stack Especializado",
+  description:
+    "Apasionado por crear experiencias digitales excepcionales. Con experiencia en tecnologías modernas como React, Node.js, Python y bases de datos. Me enfoco en escribir código limpio, escalable y en crear soluciones innovadoras que generen impacto real.",
+};
+
+const experiences = [
+  {
+    title: "Senior Full Stack Developer",
+    period: "2022 — Presente",
+    description:
+      "Desarrollo de aplicaciones web complejas utilizando React, Node.js y PostgreSQL. Liderazgo de equipos de desarrollo y implementación de mejores prácticas de código.",
+  },
+  {
+    title: "Frontend Developer",
+    period: "2020 — 2022",
+    description:
+      "Creación de interfaces de usuario modernas y responsivas. Especialización en React, TypeScript y herramientas de build modernas como Vite y Webpack.",
+  },
+  {
+    title: "Web Developer",
+    period: "2018 — 2020",
+    description:
+      "Desarrollo de sitios web y aplicaciones utilizando HTML, CSS, JavaScript y PHP. Experiencia con WordPress y sistemas de gestión de contenido.",
+  },
+];
+---
+
+<main
+  class="ml-80 min-h-screen bg-gradient-to-br from-[#1a1b1d] via-[#1e1f21] to-[#1a1b1d]"
+>
+  <!-- About Section -->
+  <section id="about" class="p-8 animate-fade-in">
+    <div class="max-w-5xl">
+      <div class="mb-12">
+        <div class="flex items-center mb-6 animate-slide-in-right">
+          <div
+            class="w-4 h-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 rounded-full mr-4 shadow-xl animate-pulse-dot"
+          >
+          </div>
+          <h2
+            class="text-3xl font-bold text-white bg-gradient-to-r from-white to-gray-300 bg-clip-text"
+          >
+            {aboutData.title}
+          </h2>
+        </div>
+        <p
+          class="text-gray-300 leading-relaxed text-lg max-w-4xl animate-fade-in-up"
+          style="animation-delay: 0.3s"
+        >
+          {aboutData.description}
+        </p>
+      </div>
+
+      <!-- Experience Section -->
+      <div class="mb-16">
+        <div
+          class="flex items-center mb-8 animate-slide-in-right"
+          style="animation-delay: 0.5s"
+        >
+          <div
+            class="w-10 h-10 bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mr-4 shadow-xl hover:scale-110 hover:rotate-12 transition-all duration-300"
+          >
+            <svg
+              class="w-5 h-5 text-gray-900"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                clip-rule="evenodd"></path>
+              <path
+                d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"
+              ></path>
+            </svg>
+          </div>
+          <h3
+            class="text-3xl font-bold text-white bg-gradient-to-r from-white to-gray-300 bg-clip-text"
+          >
+            Experiencia Profesional
+          </h3>
+        </div>
+
+        <div class="space-y-8">
+          {
+            experiences.map((exp, index) => (
+              <div
+                class="relative pl-8 pb-8 border-l-2 border-gradient-to-b from-amber-400 to-orange-500 last:border-l-0 last:pb-0 animate-slide-in-left"
+                style={`animation-delay: ${0.7 + index * 0.2}s`}
+              >
+                <div class="absolute -left-4 top-0 w-7 h-7 bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-500 rounded-full shadow-xl ring-4 ring-gray-900 hover:scale-125 transition-all duration-300 animate-pulse-glow" />
+                <div class="bg-gradient-to-br from-gray-800/60 via-gray-700/40 to-gray-800/60 backdrop-blur-xl rounded-3xl p-8 hover:from-gray-700/70 hover:via-gray-600/50 hover:to-gray-700/70 transition-all duration-500 hover:transform hover:scale-105 hover:translate-y-[-8px] shadow-2xl hover:shadow-3xl border border-gray-600/30 hover:border-amber-400/50 group">
+                  <h4 class="font-bold text-xl text-white mb-3 group-hover:text-amber-400 transition-colors duration-300">
+                    {exp.title}
+                  </h4>
+                  <p class="text-amber-400 font-semibold mb-4 text-lg">
+                    {exp.period}
+                  </p>
+                  <p class="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                    {exp.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes zoom-in {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+    }
+    50% {
+      transform: scale(1.2);
+      box-shadow: 0 0 0 10px rgba(251, 191, 36, 0);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+    }
+    50% {
+      box-shadow:
+        0 0 30px rgba(251, 191, 36, 0.6),
+        0 0 40px rgba(251, 191, 36, 0.3);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+  }
+
+  .animate-zoom-in {
+    animation: zoom-in 0.6s ease-out;
+  }
+
+  .animate-pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+</style>
